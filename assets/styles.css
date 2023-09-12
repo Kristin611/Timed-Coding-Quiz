@@ -15,3 +15,15 @@ display: block;
     text-align: left;
 
 }
+
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+  font-size: x-large;
+  font-weight: 500;
+  
+}
+
+#answer-list li {
+  list-style-type: none;
+}
