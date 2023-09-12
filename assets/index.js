@@ -4,7 +4,18 @@ const question = document.getElementById('question-title')
 const answerList = document.getElementById('answer-list')
 const startBtn = document.getElementById('startBtn')
 
-
+const mcQuestions = [
+    {
+        question: 'Which of the following is not a primitive data type?',
+        choices: ['String', 'Number', 'Array', 'Boolean'],
+        correctAnswer: 2,
+    },
+    {
+        question: 'What does NaN stand for?',
+        choices: ['Now or Never', 'Null', 'Not Another', 'Not a Number'],
+        correctAnswer: 3,
+    }
+]
 
 let timer;
 let timerLeft = 5;
