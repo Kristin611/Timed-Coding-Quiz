@@ -76,7 +76,7 @@ function mcChecker(mcContent) {
     } else {
         result = 'Incorrect!'
         // alert('Incorrect: 5 seconds will be deducted from the timer!')
-        timer -= 5;
+        timer -= 5; //time reduction for getting an incorrect score
 
         console.log('Incorrect!')  
     }
@@ -90,7 +90,7 @@ function mcChecker(mcContent) {
     console.log(mcIndex)
     displayQuestion()
 
-    if (result === 'Correct!') {
+    if (result === 'Correct!') { //score tally
         mcScore.correctAnswers += 1; //shortcut for increasing a score is using +=
     } else if (result === "Incorrect!") {
         mcScore.incorrectAnswers += 1;
