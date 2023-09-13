@@ -8,6 +8,11 @@ const submitBtn = document.getElementById('submitBtn')
 
     let mcIndex = 0
 
+    const mcScore = {
+        correctAnswers: 0,
+        incorrectAnswers: 0
+    };
+
 const mcQuestions = [
     {
         question: 'Which of the following is not a primitive data type?',
@@ -56,6 +61,7 @@ function displayQuestion() {
 }
 
 let userChoice = '';
+let result = '';
 
 function mcChecker(mcContent) {
     //mcIndex++ to jump to the next question
@@ -65,9 +71,11 @@ function mcChecker(mcContent) {
 
     if (userChoice === currentQuestion.correctAnswer) {
         console.log('Correct!')
-        alert('Correct!')
+        // alert('Correct!')
+        result = 'Correct!'
     } else {
-        alert('Incorrect: 5 seconds will be deducted from the timer!')
+        result = 'Incorrect!'
+        // alert('Incorrect: 5 seconds will be deducted from the timer!')
         timer -= 5;
 
         console.log('Incorrect!')  
@@ -81,6 +89,12 @@ function mcChecker(mcContent) {
     mcIndex++
     console.log(mcIndex)
     displayQuestion()
+
+    if (result === 'Correct!') {
+        mcScore.correctAnswers += 1; //shortcut for increasing a score is using +=
+    } else if (result === "Incorrect!") {
+        mcScore.incorrectAnswers += 1;
+    }
 }
 
 let timer;
