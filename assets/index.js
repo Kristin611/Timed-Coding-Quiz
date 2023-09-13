@@ -3,6 +3,7 @@ const highscore = document.getElementById('scoreLog')
 const question = document.getElementById('question-title')
 const answerList = document.getElementById('answer-list')
 const startBtn = document.getElementById('startBtn')
+const initials = document.getElementById('initials')
 
     let mcIndex = 0
 
@@ -53,15 +54,36 @@ function displayQuestion() {
     })
 }
 
+let userChoice = '';
+
 function mcChecker(mcContent) {
     //mcIndex++ to jump to the next question
+    //if statements go here
+    userChoice = mcContent;
+    const currentQuestion = mcQuestions[mcIndex];
+
+    if (userChoice === currentQuestion.correctAnswer) {
+        console.log('Correct!')
+        alert('Correct!')
+    } else {
+        alert('Incorrect: 5 seconds will be deducted from the timer!')
+        timer -= 5;
+
+        console.log('Incorrect!')  
+    }
+
+    if (timer < 0) {
+        clearInterval(timer);
+
+    }
+
     mcIndex++
     console.log(mcIndex)
     displayQuestion()
 }
 
 let timer;
-let timerLeft = 5;
+let timerLeft = 30;
 
 function updateTimerDisplay() {
     timerDisplay.textContent = timeLeft;
@@ -69,7 +91,7 @@ function updateTimerDisplay() {
 }
 
 function startTime() {
-    timeLeft = 5
+    timeLeft = 30
 
     timer = setInterval(function (){
         timeLeft--
@@ -87,6 +109,8 @@ function startTime() {
 function stopTimer() {
     clearInterval(timer)
 }
+
+
 
 
 

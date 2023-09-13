@@ -7,6 +7,7 @@ display: block;
   transition: 0.3s;
   width: 60vw;
   background-color: #a7a9cd;
+  border-radius: 3%;
 }
 
 .form label {
@@ -26,4 +27,15 @@ display: block;
 
 #answer-list li {
   list-style-type: none;
+}
+
+.initial-container {
+  display: flex;
+  justify-content: center;
+}
+
+#submitBtn {
+  margin: 10%;
+  text-align: center;
+ 
 }
