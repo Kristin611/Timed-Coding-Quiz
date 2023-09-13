@@ -4,6 +4,7 @@ const question = document.getElementById('question-title')
 const answerList = document.getElementById('answer-list')
 const startBtn = document.getElementById('startBtn')
 const initials = document.getElementById('initials')
+const submitBtn = document.getElementById('submitBtn')
 
     let mcIndex = 0
 
