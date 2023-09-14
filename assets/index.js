@@ -1,14 +1,22 @@
 const timerDisplay = document.getElementById('timerDisplay')
-const highscore = document.getElementById('scoreLog')
+const viewHighScore = document.getElementById('view-high-scores')
 const question = document.getElementById('question-title')
 const answerList = document.getElementById('answer-list')
 const startBtn = document.getElementById('startBtn')
 const initials = document.getElementById('initials')
 const submitBtn = document.getElementById('submitBtn')
+const restartBtn = document.getElementById('return')
+const scoreBoard = document.querySelector('.score-board')
+const endScreen = document.querySelector('.end-screen')
 
     let mcIndex = 0
 
-    const mcScore = {
+    let timer;
+    let timeLeft = 30;
+
+    
+
+    const mcScore = { //object for keeping score
         correctAnswers: 0,
         incorrectAnswers: 0
     };
@@ -17,12 +25,12 @@ const mcQuestions = [
     {
         question: 'Which of the following is not a primitive data type?',
         choices: ['String', 'Number', 'Array', 'Boolean'],
-        correctAnswer: 2,
+        correctAnswer: 'Array',
     },
     {
         question: 'What does NaN stand for?',
         choices: ['Now or Never', 'Null', 'Not Another', 'Not a Number'],
-        correctAnswer: 3,
+        correctAnswer: 'Not a Number',
     }
 
 ];
@@ -60,35 +68,36 @@ function displayQuestion() {
     })
 }
 
-let userChoice = '';
+// let userChoice = '';
 let result = '';
 
 function mcChecker(mcContent) {
     //mcIndex++ to jump to the next question
     //if statements go here
-    userChoice = mcContent;
-    const currentQuestion = mcQuestions[mcIndex];
+    let userChoice = mcContent;
+    const currentAnswer = mcQuestions[mcIndex].correctAnswer;
+    console.log('check answer', userChoice, currentAnswer)
 
-    if (userChoice === currentQuestion.correctAnswer) {
+    if (userChoice === currentAnswer) { //tried [mcIndex], [0], [1]
         console.log('Correct!')
         // alert('Correct!')
         result = 'Correct!'
     } else {
         result = 'Incorrect!'
         // alert('Incorrect: 5 seconds will be deducted from the timer!')
-        timer -= 5; //time reduction for getting an incorrect score
+        timeLeft -= 5; //time reduction for getting an incorrect score
 
         console.log('Incorrect!')  
     }
 
-    if (timer < 0) {
+    if (timer <= 0) {
         clearInterval(timer);
 
     }
 
     mcIndex++
     console.log(mcIndex)
-    displayQuestion()
+    
 
     if (result === 'Correct!') { //score tally. need to save this in local storage.
         mcScore.correctAnswers += 1; //shortcut for increasing a score is using +=
@@ -96,12 +105,17 @@ function mcChecker(mcContent) {
         mcScore.incorrectAnswers += 1;
     }
 
-    // localStorage.setItem('score', JSON.stringify(mcScore)); Need to add event listener for this to work?
-    // JSON.parse(localStorage.getItem('score'));
+        if (mcQuestions.length > mcIndex) {
+            displayQuestion()
+        } else {
+            clearInterval(timer)
+            //enter an end screen function later 
+            gameOver()
+        }
+    
 }
 
-let timer;
-let timerLeft = 30;
+
 
 function updateTimerDisplay() {
     timerDisplay.textContent = timeLeft;
@@ -115,7 +129,7 @@ function startTime() {
         timeLeft--
         updateTimerDisplay()
 
-        if(timeLeft === 0) {
+        if(timeLeft <= 0) {
             stopTimer()
             alert('Times Up--Try Again!')
         }
@@ -127,6 +141,49 @@ function startTime() {
 function stopTimer() {
     clearInterval(timer)
 }
+
+function gameOver() {
+    
+    endScreen.classList.remove('hide')
+    const quizElement = document.querySelector('.quiz')
+    quizElement.classList.add('hide') 
+}
+
+function saveScores() {
+    const initialsInput = document.querySelector('#initials')
+    let user = initialsInput.value.trim()
+    let highScores = JSON.parse(localStorage.getItem('highScores')) || []
+    let newScore = {
+        user: user,
+        mcScore: mcScore
+    }
+
+    highScores.push(newScore)
+    localStorage.setItem('highScores', JSON.stringify(highScores))
+    endScreen.innerText = 'Score Saved!'
+}
+
+function viewHighScores() {
+    let scoreList = JSON.parse(localStorage.getItem('highScores')) || []
+    let scoresElement = ''
+    scoreList.forEach((score) => {
+     scoresElement += `<div class='scoreLog'><p>score: ${score.user} Correct: ${score.mcScore.correctAnswers} Incorrect: ${score.mcScore.incorrectAnswers}</p></div>` 
+     scoreBoard.innerHTML = scoresElement  
+    });
+}
+
+viewHighScore.addEventListener('click', function(event) {
+    event.preventDefault()
+
+    viewHighScores() 
+    scoreBoard.classList.remove('hide')
+})
+submitBtn.addEventListener('click', saveScores)
+
+restartBtn.addEventListener('click', function(event) {
+    event.preventDefault()
+    document.location.reload()
+}) 
 
 
 

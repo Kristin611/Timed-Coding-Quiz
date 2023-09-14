@@ -9,10 +9,10 @@
 <body>
     <header class="flexContainer">
         <span id="scoreLog">View High Scores</span>
-        <span id="timerDisplay">30</span>
+        <span id="timerDisplay">Time: 30</span>
     </header>
     <section class="container">
-        <section>
+        <section class="quiz">
             <section id="title">
                 <h2>Coding Quiz Challenge</h2>
                 <p>Choose the best answer.</p>
@@ -31,17 +31,20 @@
         </section> 
         
         <section class="initial-container">
-            <section>
+            <section class="end-screen hide"> 
                 <h4 id="finished"></h4>
                 <p id="final-score"></p>
                 <form><input type="text" placeholder="record your initials" id="initials"></form>
                 <button id="submitBtn">Submit</button>
             </section> 
+        </section>
+        <section>
             <section>
                 <h4 id="high-scores-title"></h4>
-                <form action="" id="player"></form>
-                <button id="return"></button>
-                <button id="high-scores"></button>
+                <form action="" id="player-list"></form>
+                <button id="return">Start Over</button>
+                <button id="view-high-scores">View High Scores</button>
+                <div class="score-board hide"></div>
             </section>
         </section>
     </section>
