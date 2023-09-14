@@ -90,11 +90,14 @@ function mcChecker(mcContent) {
     console.log(mcIndex)
     displayQuestion()
 
-    if (result === 'Correct!') { //score tally
+    if (result === 'Correct!') { //score tally. need to save this in local storage.
         mcScore.correctAnswers += 1; //shortcut for increasing a score is using +=
     } else if (result === "Incorrect!") {
         mcScore.incorrectAnswers += 1;
     }
+
+    // localStorage.setItem('score', JSON.stringify(mcScore)); Need to add event listener for this to work?
+    // JSON.parse(localStorage.getItem('score'));
 }
 
 let timer;
