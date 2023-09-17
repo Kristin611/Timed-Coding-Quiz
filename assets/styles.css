@@ -19,7 +19,7 @@ display: block;
 
 .flexContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content:flex-end;
   font-size: x-large;
   font-weight: 500;
   
@@ -33,6 +33,12 @@ display: block;
 #answer-list li {
   list-style-type: none;
   text-align: left;
+  border: 1px solid black;
+  border-width: 2px;
+  padding: 3%;
+  border-radius: 5%;
+  background-color: peachpuff;
+  width: 70%;
 }
 
 .initial-container {

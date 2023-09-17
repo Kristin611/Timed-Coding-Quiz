@@ -85,7 +85,6 @@ function displayQuestion() {
     })
 }
 
-// let userChoice = '';
 let result = '';
 
 function mcChecker(mcContent) { //the function to check whether the question is answered correctly or incorrectly. 
