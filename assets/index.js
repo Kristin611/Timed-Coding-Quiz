@@ -15,6 +15,7 @@
 // 6. To re-take the quiz, user clicks "Start Over." 
 
 //below are the variables I created to grab specific html elements in order to make the application interactive. 
+
 const timerDisplay = document.getElementById('timerDisplay')
 const viewHighScore = document.getElementById('view-high-scores')
 const question = document.getElementById('question-title')
@@ -38,24 +39,24 @@ const endScreen = document.querySelector('.end-screen')
         incorrectAnswers: 0
     };
 
-const mcQuestions = [ //I created an array of object questions the stores the quiz questions with choices and correct answers.
-    {
-        question: 'Which of the following is not a primitive data type?',
-        choices: ['String', 'Number', 'Array', 'Boolean'],
-        correctAnswer: 'Array',
-    },
-    {
-        question: 'What does NaN stand for?',
-        choices: ['Now or Never', 'Null', 'Not Another', 'Not a Number'],
-        correctAnswer: 'Not a Number',
-    }
+    const mcQuestions = [ //I created an array of object questions the stores the quiz questions with choices and correct answers.
+        {
+            question: 'Which of the following is not a primitive data type?',
+            choices: ['String', 'Number', 'Array', 'Boolean'],
+            correctAnswer: 'Array',
+        },
+        {
+            question: 'What does NaN stand for?',
+            choices: ['Now or Never', 'Null', 'Not Another', 'Not a Number'],
+            correctAnswer: 'Not a Number',
+        }
     
 
 ];
     
-    function mcStart() {
-        startTime()
-        displayQuestion()
+function mcStart() {
+    startTime()
+    displayQuestion()
     }
 
     

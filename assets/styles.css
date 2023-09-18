@@ -14,18 +14,12 @@ display: block;
   border-radius: 3%;
 }
 
-/* .form label {
-    display: block;
-    margin-bottom: 10px; 
-    text-align: left;
-
-} */
-
 #startBtn {
   padding: 10px;
   background-color: peachpuff;
   border-width: 3px;
   border-radius: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .flexContainer {
@@ -69,6 +63,7 @@ display: block;
   background-color: peachpuff;
   border-width: 3px;
   border-radius: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
  
 }
 
@@ -83,6 +78,7 @@ display: block;
   background-color: peachpuff;
   border-width: 3px;
   border-radius: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 
 }
 
