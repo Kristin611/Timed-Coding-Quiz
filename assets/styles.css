@@ -1,3 +1,7 @@
+body {
+  background-color: peachpuff;
+}
+
 .container {
 display: block;
   margin: 80px auto;
@@ -10,11 +14,18 @@ display: block;
   border-radius: 3%;
 }
 
-.form label {
+/* .form label {
     display: block;
     margin-bottom: 10px; 
     text-align: left;
 
+} */
+
+#startBtn {
+  padding: 10px;
+  background-color: peachpuff;
+  border-width: 3px;
+  border-radius: 5%;
 }
 
 .flexContainer {
@@ -46,12 +57,32 @@ display: block;
   justify-content: center;
 }
 
+#initials {
+  width: 250px;
+  color: #7377c6;
+}
+
 #submitBtn {
   margin: 10%;
   text-align: center;
+  padding: 10px;
+  background-color: peachpuff;
+  border-width: 3px;
+  border-radius: 5%;
  
 }
 
 .hide {
   display: none;
 }
+
+#return, #view-high-scores {
+  
+  margin: 5%;
+  padding: 10px;
+  background-color: peachpuff;
+  border-width: 3px;
+  border-radius: 5%;
+
+}
+
