@@ -48,6 +48,21 @@ const mcQuestions = [ //I created an array of object questions the stores the qu
         question: 'What does NaN stand for?',
         choices: ['Now or Never', 'Null', 'Not Another', 'Not a Number'],
         correctAnswer: 'Not a Number',
+    },
+    {
+        question: 'What is the primary purpose of JavaScript?',
+        choices: ['Styling web pages', 'Creating server-side applications', 'Enhancing user interfaces', 'Managing databases'],
+        correctAnswer: 'Enhancing user interfaces',
+    },
+    {
+        question: 'What does the "DOM" stand for in JavaScript?',
+        choices: ['Document Object Model', 'Data Object Model', 'Dynamic Output Mechanism', 'Digital Object Manager'],
+        correctAnswer: 'Document Object Model',
+    },
+    {
+        question: 'Which JavaScript method is used to add new elements to an array?',
+        choices: ['push()', 'append()', 'addElement()', 'insert()'],
+        correctAnswer: 'push()',
     }
 
 ];
